@@ -29,9 +29,12 @@ describe('Testes de Redirecionamento e Home', () => {
                     .set('Accept', 'application/json'); // Simula ferramenta de API
 
                 expect(response.status).toBe(200);
-                expect(response.body).toHaveProperty('message', 'Bem-vindo à API Sabiá');
-                expect(response.body).toHaveProperty('version');
-                expect(response.body).toHaveProperty('docs', 'https://docs.sabiaedu.ia.br/');
+                expect(response.body).toHaveProperty('message', 'Bem-vindo à API Sabiá | Rota principal - Consulte documentação para mais informações');
+                expect(response.body).toHaveProperty('infos');
+                expect(response.body).toHaveProperty('infos.version');
+                expect(response.body).toHaveProperty('infos.status');
+                expect(response.body).toHaveProperty('infos.timestamp');
+                expect(response.body).toHaveProperty('infos.docs', 'https://docs.sabiaedu.ia.br/');
             });
         });
     });

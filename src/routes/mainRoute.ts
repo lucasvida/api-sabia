@@ -6,9 +6,13 @@ const mainRoute = express.Router();
 
 mainRoute.get(['/', '/v1'], browserRedirect, (req, res) => {
     res.json({
-        message: "Bem-vindo à API Sabiá",
-        version: "v1.0.0",
-        docs: "https://docs.sabiaedu.ia.br/"
+        message: "Bem-vindo à API Sabiá | Rota principal - Consulte documentação para mais informações",
+        infos: {
+            version: "v1.0.0",
+            status: 200,
+            timestamp: new Date().toISOString(),
+            docs: "https://docs.sabiaedu.ia.br/"
+        }
     });
 });
 

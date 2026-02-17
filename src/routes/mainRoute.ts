@@ -1,5 +1,6 @@
 import express from 'express';
 import aulasRoute from './aulasRoute.js';
+import quizzesRoute from './quizzesRoutes.js';
 import { browserRedirect } from '../middlewares/browserRedirect.js';
 import { notAllowedMethods, notFound } from '../middlewares/handleErros.js';
 const mainRoute = express.Router();
@@ -17,6 +18,7 @@ mainRoute.get(['/', '/v1'], browserRedirect, (req, res) => {
 });
 
 mainRoute.use('/v1/aulas', aulasRoute);
+mainRoute.use('/v1/quizzes', quizzesRoute);
 mainRoute.use(notAllowedMethods);
 mainRoute.use(notFound);
 
